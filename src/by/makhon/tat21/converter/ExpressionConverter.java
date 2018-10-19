@@ -1,7 +1,6 @@
 package by.makhon.tat21.converter;
 
 import by.makhon.tat21.bean.Expression;
-import by.makhon.tat21.calculator.Calculator;
 
 public class ExpressionConverter {
 
