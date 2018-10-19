@@ -10,7 +10,7 @@ public class ExpressionConverter {
         Expression convertedExpression = new Expression();
 
         if (values.length != 3) {
-            System.out.println("Incorrect expression! (Check separations between numbers and operation. CORRECT FORMAT EXAMPLE : '5 + 5')");
+            throw new IllegalArgumentException("Incorrect expression! (Check separations between numbers and operation. CORRECT FORMAT EXAMPLE : '5 + 5')");
         } else {
             convertedExpression.setFirstValue(Double.parseDouble(values[0]));
             convertedExpression.setOperation(values[1]);
