@@ -1,8 +1,11 @@
 package by.makhon.tat21.consolewriter;
 
+import by.makhon.tat21.bean.Expression;
+
 public class ResultConsoleWriter {
 
-    public void printResult(Double firstValue, String operation, Double secondValue, Double result) {
-        System.out.println(firstValue + " " + operation + " " + secondValue + " = " + result);
+    public void printResult(Double result, Expression expression) {
+        System.out.println(expression.getFirstValue() + " " + expression.getOperation() + " " +
+                            expression.getSecondValue() + " = " + result);
     }
 }

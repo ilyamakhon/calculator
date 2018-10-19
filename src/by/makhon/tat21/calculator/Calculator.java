@@ -1,36 +1,35 @@
 package by.makhon.tat21.calculator;
 
+import by.makhon.tat21.bean.Expression;
 import by.makhon.tat21.consolewriter.ResultConsoleWriter;
-import by.makhon.tat21.converter.ValuesConverter;
 
 public class Calculator {
 
-    public void calculate(String[] values) {
-
-        ValuesConverter valuesConverter = new ValuesConverter();
+    public void calculate(Expression expression) {
         ResultConsoleWriter resultConsoleWriter = new ResultConsoleWriter();
-
-        Double firstValue = valuesConverter.convertToNumber(values[0]);
-        Double secondValue = valuesConverter.convertToNumber(values[2]);
         Double result;
 
-        switch (values[1]) {
+        String operation = expression.getOperation();
+
+        switch (operation) {
             case "+":
-                result = firstValue + secondValue;
-                resultConsoleWriter.printResult(firstValue, values[1], secondValue, result);
+                result = expression.getFirstValue() + expression.getSecondValue();
+                resultConsoleWriter.printResult(result, expression);
                 break;
             case "-":
-                result = firstValue - secondValue;
-                resultConsoleWriter.printResult(firstValue, values[1], secondValue, result);
+                result = expression.getFirstValue() - expression.getSecondValue();
+                resultConsoleWriter.printResult(result, expression);
                 break;
-            case "*":
-                result = firstValue * secondValue;
-                resultConsoleWriter.printResult(firstValue, values[1], secondValue, result);
+            case "x":
+                result = expression.getFirstValue() * expression.getSecondValue();
+                resultConsoleWriter.printResult(result, expression);
                 break;
-            case "/":
-                result = firstValue / secondValue;
-                resultConsoleWriter.printResult(firstValue, values[1], secondValue, result);
+            case ":":
+                result = expression.getFirstValue() / expression.getSecondValue();
+                resultConsoleWriter.printResult(result, expression);
                 break;
+            default:
+                System.out.println("Incorrect operation");
         }
     }
 }
