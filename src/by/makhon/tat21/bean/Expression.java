@@ -1,19 +1,42 @@
 package by.makhon.tat21.bean;
 
+import java.util.List;
+
+import static java.util.Arrays.asList;
+
 public class Expression {
 
-
+    private Operation operation;
 
     private Double firstValue;
     private Double secondValue;
-    private String operation;
 
-    public String getOperation() {
+    public Operation getOperation() {
         return operation;
     }
 
-    public void setOperation(String operation) {
+    public void setOperation(Operation operation) {
         this.operation = operation;
+    }
+
+    public enum Operation {
+        PLUS("+"), MINUS("-"), MULTIPLE("x", "X"), DIVIDE(":");
+
+        private List<String> symbols;
+
+        Operation(String... symbols) {
+            this.symbols = asList(symbols);
+        }
+
+        public static Operation parseFromString(String symbol) {
+            for (Operation operation : Operation.values()) {
+                if (operation.symbols.contains(symbol)) {
+                    return operation;
+                }
+            }
+            return null;
+        }
+
     }
 
     public Double getFirstValue() {

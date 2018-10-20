@@ -11,6 +11,6 @@ public class Main {
         Calculator calculator = new Calculator();
 
         Expression convertedExpression = expressionConverter.convertExpression(args);
-        calculator.calculate(convertedExpression);
+        System.out.println(calculator.calculate(convertedExpression));
     }
 }
