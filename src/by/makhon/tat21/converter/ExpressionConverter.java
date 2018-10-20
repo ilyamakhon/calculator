@@ -35,7 +35,7 @@ public class ExpressionConverter {
     private Expression.Operation parseOperation(String value) {
         Expression.Operation operation = Expression.Operation.parseFromString(value);
         if (operation == null) {
-            throw new IllegalArgumentException("Wrong value");
+            throw new IllegalArgumentException("Wrong operation");
         }
         return operation;
     }
